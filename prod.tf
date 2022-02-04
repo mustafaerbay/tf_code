@@ -4,7 +4,9 @@ provider "aws" {
   shared_credentials_file = "/root/terraform/.aws/credentials"
 }
 
-resource "aws_s3_bucket" "tf_course" {
-  bucket = "tf-course-20220204"
+resource "aws_s3_bucket" "prod_tf_course" {
+  bucket_prefix = "anatolman-tf-course"
   acl = "private"
 }
+
+resource "aws_default_vpc" "default" {}
