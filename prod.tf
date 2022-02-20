@@ -1,6 +1,15 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "= 3.74.1"
+    }
+  }
+}
+
 provider "aws" {
-  profile                 = "default"
-  region                  = "us-west-2"
+  region = "us-west-2"
+  profile = "default"
   shared_credentials_file = "/root/terraform/.aws/credentials"
 }
 
@@ -73,7 +82,7 @@ resource "aws_elb" "prod_web" {
 
 resource "aws_launch_template" "prod_web" {
   name_prefix   = "prod-web"
-  image_id      = "ami-03a0cd500c36e8f3c"
+  image_id      = "ami-0c4679e50e254f385"
   instance_type = "t2.micro"
   tags = {
     "Terraform" : "true"
